@@ -31,10 +31,8 @@ exports.handler = async function (context, event, callback) {
     await client.conversations
       .conversations(conversationSid)
       .webhooks.create({
-        'configuration.method': 'POST',
-        'configuration.filters': ['onMessageAdded'],
-        'configuration.url': CONVERSATIONS_WEBHOOK_URL,
-        target: 'webhook'
+        'configuration.flowSid': "FWd92228e9096216207b319b52528adb6b",
+        target: 'studio'
       })
       .then(async webhook => {
         const webhookSid = webhook.sid
